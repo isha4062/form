@@ -36,6 +36,7 @@ const UserDetails = ({ formData, setFormData }) => {
             placeholder="Country"
             // value={formData.country}
             onChange={(event) => setFormData({ ...formData, country: event.target.value })}>
+              <option value="">Select your country</option>
               <option value="Aghanistan">Afghanistan</option>
               <option value="France">France</option>
               <option value="Germany">Germany</option>
