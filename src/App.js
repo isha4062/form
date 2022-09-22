@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import PersonalDetails from './components/PersonalDetails';
+import Success from './components/Success';
+import "./style/main.scss";
 
 function App() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    country: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    address: "",
+    number: "",
+    birthDate: ""
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route exact path="/" element={<Home formData={formData} setFormData={setFormData} />} />
+      <Route path="/personal" element={<PersonalDetails formData={formData} setFormData={setFormData} />} />
+      <Route path="/success" element={<Success formData={formData} />} />
+    </Routes>
   );
 }
 
